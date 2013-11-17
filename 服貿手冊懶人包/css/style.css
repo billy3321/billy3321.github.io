@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+/*reset*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin:0px;
+	padding:0px;}
+/*樣式*/
+body{
+	background:#e2e2e0;}
+#all-wrap{
+	width:100%;
+	max-width:960px;
+	margin:0 auto;}
+#top-banner{
+	background:url(../images/1985-01.jpg) right top;
+	height:503px;
+	overflow:hidden;
+	text-indent:-500px;
+	margin:0 0 15px 0;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;}
+.content-s-block{
+	background:#fff;
+	border-radius:20px;
+	padding:20px;
+	margin:0 0 15px 0;}
+.content-s-block h3{
+	margin:0 0 14px 0;
+	font-size:28px;
+	background-color:#231815;
+	background-repeat:no-repeat;
+	background-position:20px bottom;
+	border-radius:20px;
+	color:#fff;
+	padding:15px 20px 15px 80px;
+	letter-spacing:1px;}
+.txt-block{
+	font-size:18px;
+	line-height:1.6em;
+	letter-spacing:1px;
+	padding: 0 20px;
+	}
+.txt-block p{
+	margin:0 0 8px 0;}
+.txt-block h4{
+	font-size:22px;
+	color:#083388;
+	margin:0 0 8px 0;}
+.img-say{
+	text-align:center;
+	font-size:13px;}
+.img-say img{
+	display:block;
+	margin:auto;
+	max-width:100%;}
+.title-01{
+	background-image:url(../images/qicon-01.jpg);
+	}
+.title-02{
+	background-image:url(../images/qicon-02.jpg);
+	}
+.title-03{
+	background-image:url(../images/qicon-03.jpg);
+	}
+.title-04{
+	background-image:url(../images/qicon-04.jpg);
+	}
+.title-05{
+	background-image:url(../images/qicon-05.jpg);
+	}
+.title-06{
+	background-image:url(../images/qicon-06.jpg);
+	}
+.title-07{
+	background-image:url(../images/qicon-07.jpg);
+	}
+.txt-block ul{
+	padding:0 20px;
+	margin:0 0 8px 0;}
+.txt-block ul{
+	list-style-type:none;}
+.txt-block ul li{
+	background:url(../images/li.gif) no-repeat left 5px;
+	padding:0 0 0 28px;}
+.two-col{
+	overflow:hidden;}
+.two-col li{
+	float:left;
+	width:30%;}
+strong{
+	color:#CC0000;}
+.pnote{
+	color:#660099;}
+.how span,.how em{
+	display:block;
+	font-style:normal;
+	float:left;}
+.txt-block ul.how{
+	overflow:hidden;
+	padding:0px;
+	}
+.txt-block ul.how li{
+	background-image:none;
+	overflow:hidden;
+	padding:0px;
+	margin:0 0 10px 0;
+	}
+.how span{
+	width:15%;
+	border-radius:15px;
+	text-align:center;
+	margin:0 10px 0 0;
+	padding:10px;}
+.how em{
+	border-radius:15px;
+	width:75%;
+	padding:10px;
+	}
+.ss01 span,.ss01 em{
+	background:#f8c9dd;}
+.ss02 span,.ss02 em{
+	background:#fbc762;}
+.ss03 span,.ss03 em{
+	background:#fff3af;}
+.ss04 span,.ss04 em{
+	background:#c9d981;}
+.ss05 span,.ss05 em{
+	background:#9fd8f6;}
+.ccnote{
+	font-size:13px;
+	text-align:center;
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	background-color:#231815;
+	padding:15px;
+	color:#fff;}
+.ccnote a{
+	color:#fff;}

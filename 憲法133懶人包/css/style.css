@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+/*reset*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin:0px;
+	padding:0px;}
+/*樣式*/
+body{
+	background:#555657;}
+#all-wrap{
+	width:100%;
+	max-width:960px;
+	margin:0 auto;}
+#top-banner{
+	background:url(../images/133-01.jpg);
+	background-size:100%;
+    height:352px;
+	overflow:hidden;
+	text-indent:-500px;
+	margin:0 0 15px 0;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;}
+.content-s-block{
+	background:#d4d8db;
+	border-radius:20px;
+	padding:20px;
+	margin:0 0 25px 0;}
+.content-s-block h3{
+	font-size:28px;
+	background-color:#555657;
+	background-repeat:no-repeat;
+	background-position:20px bottom;
+	border-radius:20px;
+	color:#fff;
+	padding:15px 20px 15px 160px;
+	letter-spacing:1px;
+	min-height:70px;}
+.c-title{
+	position:relative;
+	margin:15px 0 40px 0;}
+.qicon{
+	width:133px;
+	height:160px;
+	background:url(../images/qicon.png);
+	position:absolute;
+	left:15px;
+	top:-30px;}
+.txt-block{
+	font-size:18px;
+	line-height:1.5em;
+	letter-spacing:1px;
+	padding: 0 20px;
+	}
+.txt-block p{
+	margin:0 0 12px 0;}
+.txt-block h4{
+	font-size:22px;
+	color:#166a67;
+	margin:0 0 8px 0;}
+.img-say{
+	text-align:center;
+	font-size:13px;}
+.img-say img{
+	display:block;
+	margin:auto;
+	max-width:80%;}
+.txt-block ul,.txt-block ol{
+	padding:0 20px;
+	margin:0 0 8px 0;}
+.txt-block ul{
+	list-style-type:none;}
+.txt-block ul li{
+	background:url(../images/li.png) no-repeat left 7px;
+	padding:0 0 0 28px;}
+.txt-block ol li{
+	margin:0 0 12px 0;}
+.two-col{
+	overflow:hidden;}
+.two-col li{
+	float:left;
+	width:30%;}
+strong{
+	color:#bc4a0d;}
+.pnote{
+	color:#660099;}
+.iright{
+	float:right;
+	margin:0 0 0 10px;}
+.ileft{
+	float:left;
+	margin:0 10px 0 0;}
+.ccnote{
+	font-size:13px;
+	text-align:center;
+	padding:15px;
+	color:#fff;}
+.ccnote a{
+	color:#fff;}
