@@ -10,7 +10,8 @@ body{
 #all-wrap{
 	width:100%;
 	max-width:960px;
-	margin:0 auto;}
+	margin:0 auto;
+	position:relative;}
 #top-banner{
 	background:url(../images/1985-01.jpg) right top;
 	height:503px;
@@ -136,3 +137,7 @@ strong{
 	color:#fff;}
 .ccnote a{
 	color:#fff;}
+#share{
+	position:absolute;
+	right:10px;
+	top:10px;}

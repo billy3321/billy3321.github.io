@@ -10,7 +10,8 @@ body{
 #all-wrap{
 	width:100%;
 	max-width:960px;
-	margin:0 auto;}
+	margin:0 auto;
+	position:relative;}
 #top-banner{
 	background:url(../images/133-01.jpg);
 	background-size:100%;
@@ -96,3 +97,7 @@ strong{
 	color:#fff;}
 .ccnote a{
 	color:#fff;}
+#share{
+	position:absolute;
+	right:142px;
+	top:330px;}
