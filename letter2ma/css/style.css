@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+/*reset*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin:0px;
+	padding:0px;}
+/*樣式*/
+body{
+	background:#fff;}
+#all-wrap{
+	width:100%;
+	max-width:960px;
+	margin:0 auto;}
+#top-banner{
+	background:url(../images/title-bg.gif) center top no-repeat ;
+	height:500px;
+	overflow:hidden;
+	margin:0 0 15px 0;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+	text-align:center;
+	text-indent:-2000px;}
+.content-s-block{
+	border-radius:20px;
+	padding:20px;
+	margin:0 0 15px 0;
+	border:2px solid #999999;}
+.content-n-block{
+	border-radius:20px;
+	padding:20px;
+	margin:0 0 15px 0;
+	background:#E6E6E6;
+	color:#4d4d4d;
+	position:relative;}
+.content-s-block em{
+	font-size:11px;
+	font-style:normal;
+	vertical-align:super;}
+.content-s-block h3,.content-n-block h3{
+	margin:0 0 14px 0;
+	font-size:24px;
+	color:#333333;
+	padding:15px 20px;
+	letter-spacing:1px;}
+.content-n-block h3{
+	color:#4d4d4d;}
+.txt-block{
+	font-size:18px;
+	line-height:1.5em;
+	letter-spacing:1px;
+	padding: 0 20px;
+	}
+.txt-block p{
+	margin:0 0 28px 0;}
+.txt-block ul,.txt-block ol{
+	padding:0 20px;
+	margin:0 0 28px 30px;}
+strong{
+	color:#CC0000;}
+.tright{
+	text-align:right;}
+.name{
+	font-size:24px;
+	font-weight:bold;}
+.txt-block p.tright{
+	margin:0 0 3px 0;}
+#share{
+	text-align:center;
+	margin:-20px 0 20px ;}
+.qrcode{
+	position:absolute;
+	right:50px;
+	bottom:50px;}
