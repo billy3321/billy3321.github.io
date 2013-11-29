@@ -124,16 +124,20 @@ h2{
 #vs-table td.title2{
 		background:#efc5f7;}	
 .more-block{
-	position:relative;}	
+	position:relative;
+	overflow:hidden;}	
 .qrcode{
-	position:absolute;
-	right:30px;
-	bottom:10px;}
+	float:right;
+	text-align:center;
+	font-size:13px;
+	}
+.qrcode img{
+	display:block;}
 #inner-tag{
 	list-style-type:none;
 	overflow:hidden;
 	position:absolute;
-	right:240px;
+	right:235px;
 	top:225px;}
 #inner-tag li{
 	float:left;
