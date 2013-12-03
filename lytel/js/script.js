@@ -67,7 +67,12 @@ var party_parser = function (party) {
         return '無黨團結聯盟';
         break;
     default:
-        return '不明';
+        if (party === null){
+            return '無黨籍';
+        }else{
+            return '不明';
+        }
+        break;
     }
 };
 
