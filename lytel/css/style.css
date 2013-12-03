@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+/*reset*/
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin:0px;
+	padding:0px;}
+#all-wrap{
+	max-width:960px;
+	margin:auto;}
+.contact-list{
+	border-collapse:collapse;
+	border:3px solid #5b3a7c;}
+.contact-list th{
+	background:#865fad;
+	color:#fff;}
+.contact-list td,.contact-list th{
+	border:1px solid #5b3a7c;}
+.contact-list td{
+	text-align:center;}
+.contact-list td.tleft{
+	text-align:left;}
+.contact{
+	padding:4px;}
+.even td{
+	background:#e2d6ee;}
