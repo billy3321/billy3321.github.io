@@ -1,6 +1,5 @@
-var url = "https://raw.github.com/g0v/twlyparser/master/data/mly-8.json";
-
-data = '';
+//var url = "https://raw.github.com/g0v/twlyparser/master/data/mly-8.json";
+var url = "data/mly-8.json";
 
 iso3166tw = {
     "CHA": "彰化縣",
