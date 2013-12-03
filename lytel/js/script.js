@@ -94,10 +94,20 @@ $.getJSON(url, function (data) {
         var contact = val['contact'];
         html = html + '<td class="tleft">';
         $.each(contact, function (key, val) {
-            html = html + '<div class="contact"><strong>' + key + '</strong><br>';
-            html = html + '電話：<a href="tel:' + val['phone'] + '">' + val['phone'] + '</a><br>';
-            html = html + '地址：<a href="http://maps.google.com.tw/?q=' + val['address'] + '">' + val['address'] + '</a><br>';
-            html = html + '傳真：<a href="fax:' + val['fax'] + '">' + val['fax'] + '</a></div>';
+            key = $.trim(key);
+            if(key){
+                html = html + '<div class="contact"><strong>' + key + '</strong><br>';
+                if (val['phone'] != undefined){
+                    html = html + '電話：<a href="tel:' + val['phone'] + '">' + val['phone'] + '</a><br>';
+                }
+                if (val['address'] != undefined){
+                    html = html + '地址：<a href="http://maps.google.com.tw/?q=' + val['address'] + '">' + val['address'] + '</a>';
+                }
+                if (val['fax'] != undefined){
+                    html = html + '<br>傳真：<a href="fax:' + val['fax'] + '">' + val['fax'] + '</a>';
+                }
+                html = html + '</div>';
+            }
         });
         html = html + '</td><tr>';
         num = num + 1;
