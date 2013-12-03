@@ -91,7 +91,7 @@ $.getJSON(url, function (data) {
         $.each(contact, function (key, val) {
             html = html + '<div class="contact"><strong>' + key + '</strong><br>';
             html = html + '電話：<a href="tel:' + val['phone'] + '">' + val['phone'] + '</a><br>';
-            html = html + '地址：' + val['address'] + '<br>';
+            html = html + '地址：<a href="http://maps.google.com.tw/?q=' + val['address'] + '">' + val['address'] + '</a><br>';
             html = html + '傳真：<a href="fax:' + val['fax'] + '">' + val['fax'] + '</a></div>';
         });
         html = html + '</td><tr>';
