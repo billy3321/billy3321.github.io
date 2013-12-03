@@ -33,8 +33,13 @@ var constituency_parser = function (constituency) {
     switch (constituency[0]) {
     case 'proportional':
         return '全國不分區';
+        break;
     case 'aborigine':
         return '山地原住民';
+        break;
+    case 'foreign':
+        return '僑居國外國民';
+        break;
     default:
         if (constituency[0] in iso3166tw) {
             if (constituency[1] == 0) {
@@ -46,6 +51,7 @@ var constituency_parser = function (constituency) {
             result = constituency[0] + '<br>' + constituency[1];
         }
         return result;
+        break;
     }
 };
 
