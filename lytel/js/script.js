@@ -85,7 +85,7 @@ var party_parser = function (party) {
 
 
 $.getJSON(url, function (data) {
-    console.log(data);
+    //console.log(data);
     var num = 0;
     $.each(data, function (key, val) {
         if ((num % 2) == 0) {
@@ -117,7 +117,7 @@ $.getJSON(url, function (data) {
         });
         html = html + '</td><tr>';
         num = num + 1;
-        console.log(html);
-        $('table.contact-list').append(html);
+        //console.log(html);
+        $('#contact-list').append(html);
     });
 });
