@@ -43,3 +43,9 @@ overflow:hidden;}
 #share{
 text-align:center;
 margin:0 0 20px 0;}
+.copyright{
+text-align:center;
+font-size:13px;
+padding:10px;
+line-height:1.4em;
+}
