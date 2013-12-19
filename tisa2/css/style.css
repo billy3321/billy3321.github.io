@@ -21,6 +21,7 @@ body{
 	border-bottom-right-radius:20px;
 	text-align:center;
 	text-indent:-2000px;}
+
 .content-s-block{
 	border-radius:20px;
 	padding:20px;
@@ -77,11 +78,8 @@ strong{
 	text-align:center;
 	position:absolute;
 	right:160px;
-	top:306px;}
-.qrcode{
-	position:absolute;
-	right:50px;
-	bottom:50px;}
+	top:210px;}
+
 .txt-block img{
 	max-width:100%;
 	display:block;
@@ -89,3 +87,14 @@ strong{
 .txt-block .img-right{
 	float:right;
 	margin:0px;}
+.ccnote{
+	font-size:13px;
+	text-align:center;
+	padding:15px;
+		background-color:#afafaf;
+		border-top-right-radius:20px;
+		border-top-left-radius:20px;}
+.qrcode{
+	position:absolute;
+	right:135px;
+	top:240px;}
