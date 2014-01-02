@@ -13,7 +13,7 @@ body{
 	margin:0 auto;}
 #top-banner{
 	background:url(../images/title-bg.gif) center top no-repeat ;
-	height:545px;
+	height:515px;
 	overflow:hidden;
 	margin:0 0 15px 0;
 	border-bottom-left-radius:20px;
@@ -49,6 +49,7 @@ body{
 	line-height:1.5em;
 	letter-spacing:1px;
 	padding: 0 20px;
+	overflow:hidden;
 	}
 .txt-block p{
 	margin:0 0 28px 0;}
@@ -85,7 +86,8 @@ blockquote{
 	font-style:italic;}
 .tag{
 	overflow:hidden;
-	padding-left:90px;}
+	padding-left:45px;
+	font-size:13px;}
 .tag li{
 	float:left;
 	list-style-type:none;
