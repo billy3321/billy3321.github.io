@@ -13,7 +13,7 @@ body{
 	margin:0 auto;}
 #top-banner{
 	background:url(../images/title-bg.gif) center top no-repeat ;
-	height:500px;
+	height:545px;
 	overflow:hidden;
 	margin:0 0 15px 0;
 	border-bottom-left-radius:20px;
@@ -68,6 +68,40 @@ strong{
 	text-align:center;
 	margin:-20px 0 20px ;}
 .qrcode{
+	float:right;
+	width:198px;
+	text-align:center;
+	font-size:13px;
+	font-weight:bold;
+	margin:0 0 0 10px;}
+.qrcode-01{
 	position:absolute;
 	right:50px;
 	bottom:50px;}
+blockquote{
+	border:3px solid #dddddd;
+	padding:20px 35px 0px 35px;
+	background:#eeeeee;
+	font-style:italic;}
+.tag{
+	overflow:hidden;
+	padding-left:90px;}
+.tag li{
+	float:left;
+	list-style-type:none;
+	margin:0 8px 0 0;}
+.tag li a{
+	display:block;
+	padding:7px 15px;
+	background:#ccc;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	text-decoration:none;
+	color:#000;}
+.tag  a.current{
+	background:#666666;
+	color:#fff;}
+.nncontent{
+	text-align:center;}
+.nncontent img{
+	max-width:100%;}
