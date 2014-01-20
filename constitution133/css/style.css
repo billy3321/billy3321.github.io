@@ -39,6 +39,11 @@ body{
 .c-title{
 	position:relative;
 	margin:15px 0 40px 0;}
+.content-s-block .c-title-2 h3{
+	padding:15px 20px 15px 20px;
+	margin:0 0 10px 0;
+	min-height:30px;}
+
 .qicon{
 	width:133px;
 	height:160px;
@@ -101,3 +106,24 @@ strong{
 	position:absolute;
 	right:142px;
 	top:330px;}
+.top-tag{
+	overflow:hidden;
+	list-style:none;
+	padding:0 0 0 40px;}
+.top-tag li{
+	float:left;
+	margin:0 5px 0 0;
+	}
+.top-tag li a{color:#000;
+text-decoration:none;
+padding:5px 10px;
+background:#5cc5c1;
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+display:block;
+}
+.top-tag li a.current{
+	background:#d4d8db;
+	}
+.teach-block img{
+	width:100%;}
