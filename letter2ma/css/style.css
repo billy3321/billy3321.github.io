@@ -10,7 +10,8 @@ body{
 #all-wrap{
 	width:100%;
 	max-width:960px;
-	margin:0 auto;}
+	margin:0 auto;
+	position:relative;}
 #top-banner{
 	background:url(../images/title-bg.gif) center top no-repeat ;
 	height:515px;
@@ -67,7 +68,7 @@ strong{
 	margin:0 0 3px 0;}
 #share{
 	text-align:center;
-	margin:-20px 0 20px ;}
+	margin:-45px 0 50px ;}
 .qrcode{
 	float:right;
 	width:198px;
@@ -86,18 +87,17 @@ blockquote{
 	font-style:italic;}
 .tag{
 	overflow:hidden;
-	padding-left:45px;
+	padding:0 20px 10px 20px;
 	font-size:13px;}
 .tag li{
 	float:left;
 	list-style-type:none;
-	margin:0 8px 0 0;}
+	margin:0 8px 8px 0;}
 .tag li a{
 	display:block;
 	padding:7px 15px;
 	background:#ccc;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
+	border-radius:5px;
 	text-decoration:none;
 	color:#000;}
 .tag  a.current{
@@ -107,3 +107,10 @@ blockquote{
 	text-align:center;}
 .nncontent img{
 	max-width:100%;}
+.tag li.info-tag{
+	position:absolute;
+	left:425px;
+	top:510px;}
+.tag li.info-tag a{
+	background:#000;
+	color:#fff;}
