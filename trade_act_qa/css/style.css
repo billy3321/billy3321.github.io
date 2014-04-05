@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /*reset*/
-body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+body,h1,h2,h3,h4,h5,h6,p,ul{
 	margin:0px;
 	padding:0px;}
 /*樣式*/
@@ -70,8 +70,11 @@ body{
 	display:block;
 	margin:auto;
 	max-width:80%;}
-.txt-block ul,.txt-block ol{
+.txt-block ul{
 	padding:0 20px;
+	margin:0 0 8px 0;}
+.txt-block ol{
+	padding:0 0 0 55px;
 	margin:0 0 8px 0;}
 .txt-block ul{
 	list-style-type:none;}
@@ -138,3 +141,18 @@ display:block;
 	background:#999999;}
 .stable td,.stable th{
 	border:1px solid #333;}
+.stfix td{
+	text-align:left;
+	padding:0 8px;
+	vertical-align:top;}
+.sstitle th{
+	text-align:left;
+	background:#ccc;
+	padding:0 8px;}
+.law-note{
+	font-size:13px;
+	line-height:20px;}
+.pali{
+	color:#bc4a0d;
+	font-weight:bold;
+	font-size:20px;}
