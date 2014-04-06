@@ -112,7 +112,8 @@ strong{
 .top-tag{
 	overflow:hidden;
 	list-style:none;
-	padding:0 0 0 40px;}
+	padding:0 0 0 40px;
+	font-size:13px;}
 .top-tag li{
 	float:left;
 	margin:0 5px 0 0;
