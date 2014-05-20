@@ -13,7 +13,7 @@ body{
 	margin:0 auto;
 	position:relative;}
 #top-banner{
-	background:url(../images/title-bg.jpg) center top no-repeat ;
+	background:url(../images/title-bg.jpg) right top no-repeat ;
 	height:430px;
 	overflow:hidden;
 	margin:0 0 15px 0;
