@@ -484,8 +484,9 @@ footer small{
 			width:98%;
 			overflow:hidden;
 			margin:0 0 5px 0;}
-		#other-video-list li img{
-			width:20%;}
+		#other-video-list li a.img_url_s{
+			width:20%;
+			padding-top:15%;}
 			#other-video-list li p,#other-video-list li h3{
 	width:70%;}
 	#other-video-list li .time{
