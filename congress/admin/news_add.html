@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新增新聞</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="admin_block">
+  <ul id="funcion-bar">
+    <li><a href="video_list.html">
+      立委影片管理
+    </a></li>
+    <li><a href="video_add.html">新增影片</a></li>
+    <li><a href="news_list.html">立委新聞管理</a></li>
+    <li><a href="news_add.html" class="current">新增新聞</a></li>
+    <li><a href="login_index.html">登出</a></li>
+  </ul>
+  <div id="function-content">
+    <table width="100%" class="table-edit">
+      <tr>
+        <th width="20%">建檔日期</th>
+        <td width="80%">2010-10-10 24:59:59</td>
+      </tr>
+      <tr>
+        <th>立委姓名</th>
+        <td><select name="select" id="select">
+        </select></td>
+      </tr>
+      <tr>
+        <th width="20%">新聞標題</th>
+        <td><input type="text" name="textfield" id="textfield" class="long-input"></td>
+      </tr>
+      <tr>
+        <th>新聞分類</th>
+        <td><input type="radio" name="radio" id="radio" value="radio">
+        媒體新聞 
+        <input type="radio" name="radio" id="radio2" value="radio">
+        兵團評論</td>
+      </tr>
+      <tr>
+        <th>原始來源連結</th>
+        <td><input type="text" name="textfield2" id="textfield2" class="long-input"></td>
+      </tr>
+      <tr>
+        <th>內容文字</th>
+        <td><textarea name="textfield3" id="textfield3" class="long-input">用所見及所得的文字編輯器（像google文件那樣設定樣式不用自己打html的介面）</textarea></td>
+      </tr>
+    </table>
+    <p class="table-btn">
+      <input type="reset" name="button2" id="button2" value="取消">
+      <input type="submit" name="button" id="button" value="確認儲存" class="btn-here">
+    </p>
+  </div>
+</div>
+</body>
+</html>

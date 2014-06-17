@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>國會調查兵團平台管理後台</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div id="login_box">
+  <h1>國會調查兵團平台管理後台</h1>
+  <p>帳　號：
+    <input type="text" name="textfield" id="textfield">
+  </p>
+  <p>密　碼：
+    <input type="text" name="textfield2" id="textfield2">
+  </p>
+  <p>驗證碼：<img src="images/gcode.gif" width="150" height="32"><br>
+<input type="text" name="textfield3" id="textfield3" class="qrcod_input">
+  </p>
+  <p class="login_btn">
+    <input name="button" type="submit" id="button" onClick="MM_goToURL('parent','video_list.html');return document.MM_returnValue" value="登入">
+  </p>
+</div>
+</body>
+</html>
