@@ -26,7 +26,7 @@ img{
 	}
 #logo{
 	display:block;
-	width:361px;
+	width:280px;
 	height:76px;
 	background:url(../images/logo.png) no-repeat center;
 	overflow:hidden;
@@ -530,10 +530,7 @@ footer small{
 		
 }
 @media only screen and (max-width: 360px){
-	#logo{-moz-background-size:100% auto;
--webkit-background-size:100% auto;
--o-background-size:100% auto;
-background-size:100% auto;}
+	
 }
 @media only screen and (max-width: 275px){
 	#top-nav li a{
