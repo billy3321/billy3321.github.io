@@ -24,7 +24,7 @@
       function properties_to_html(properties){
         var string = '<div style="line-height:1.35;overflow:hidden;white-space:nowrap;">';
         for (k in properties) {
-          string = string + k + ": "+ properties[k] + "<br />";
+          string = string + "<p>" + k + ": "+ properties[k] + "</p>";
         }
         string = string + "</div>";
         return string;
