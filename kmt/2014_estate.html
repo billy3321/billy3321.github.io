@@ -3,6 +3,7 @@
   <head>
     <title>社團法人中國國民黨及其附隨組織取自國家資產之土地清冊2014年版</title>
     <meta charset="UTF-8">
+    <meta content="kmt_map.jpg" property="og:image">
     <style>
         html, body, #map-canvas {
         height: 100%;
@@ -13,7 +14,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
-      var infowindow = new google.maps.InfoWindow();
       var map;
       var cachedGeoJson;
       var infoWindow = new google.maps.InfoWindow({
@@ -36,13 +36,12 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         map = new google.maps.Map(mapCanvas, mapOptions);
-        var promise = $.getJSON("2014_estate.geojson"); //same as map.data.loadGeoJson();
+        var promise = $.getJSON("2014_estate.geojson");
         promise.then(function(data){
-          cachedGeoJson = data; //save the geojson in case we want to update its values
+          cachedGeoJson = data;
           map.data.addGeoJson(cachedGeoJson);  
         });
         map.data.addListener('click', function(event) {
-          //show an infowindow on click   
           infoWindow.setContent(properties_to_html(event.feature.k));
           var anchor = new google.maps.MVCObject();
           anchor.set("position", event.latLng);
