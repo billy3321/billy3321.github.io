@@ -78,7 +78,7 @@ var maxBarWidth = width - barLabelWidth - valueLabelWidth - 120; // width of the
 var aggregatedData = d3.nest()
   .key(function(d) { 
     if (source == 'legislator'){
-      return d['name'] + '(' + d['constituency'] + ',' + d['party'] + ')'; 
+      return d['name'] + '(' + d['constituency'] + '，' + d['party'] + ')'; 
     } else if (source == 'party'){
       return d['party']; 
     }
