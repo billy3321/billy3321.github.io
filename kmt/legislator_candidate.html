@@ -17,18 +17,17 @@
         margin-top: 30px;
         margin-bottom: 40px;
       }
-      li {
-        margin: 5px;
+      .nav > li {
+        float:none;
+        display:inline-block;
+        *display:inline; /* ie7 fix */
+        *zoom:1; /* hasLayout ie7 trigger */
+        vertical-align: top;
+        width: 170px;
       }
-      ul {
-        margin-bottom: 30px;
-      }
-      .divider {
-        height: 50px;
-        border-left: 1px solid gray;
-        float: left;
-        opacity: 0.5;
-        margin: 0 15px;
+
+      .navbar-inner {
+        text-align: center;
       }
     </style>
 
@@ -39,17 +38,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div class=container>
+    <div class="container">
+      <div class="navbar-inner">
       <ul class="nav nav-pills">
         <li role="presentation" class="in_party_legislator active"><a href="#">各候選人政黨收入</a></li>
         <li role="presentation" class="in_profit_legislator"><a href="#">各候選人公司收入</a></li>
         <li role="presentation" class="in_total_legislator"><a href="#">各候選人總收入</a></li>
         <li role="presentation" class="out_total_legislator"><a href="#">各候選人總支出</a></li>
+      </ul>
+      <ul class="nav nav-pills">
         <li role="presentation" class="in_party_party"><a href="#">各政黨平均政黨收入</a></li>
         <li role="presentation" class="in_profit_party"><a href="#">各政黨平均公司收入</a></li>
         <li role="presentation" class="in_total_party"><a href="#">各政黨平均總收入</a></li>
         <li role="presentation" class="out_total_party"><a href="#">各政黨平均總支出</a></li>
       </ul>
+      </div>
       <hr>
       <div id="chart"></div>
     </div>
