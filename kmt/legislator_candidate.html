@@ -2,7 +2,7 @@
 <!-- Generated with d3-generator.com -->
 <html>
   <head>
-    <title>Bar Chart</title>
+    <title>政治獻金比較表</title>
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
@@ -15,6 +15,20 @@
         font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Microsoft JhengHei', sans-serif;
         line-height: 150%;
         margin-top: 30px;
+        margin-bottom: 40px;
+      }
+      li {
+        margin: 5px;
+      }
+      ul {
+        margin-bottom: 30px;
+      }
+      .divider {
+        height: 50px;
+        border-left: 1px solid gray;
+        float: left;
+        opacity: 0.5;
+        margin: 0 15px;
       }
     </style>
 
@@ -36,6 +50,7 @@
         <li role="presentation" class="in_total_party"><a href="#">各政黨平均總收入</a></li>
         <li role="presentation" class="out_total_party"><a href="#">各政黨平均總支出</a></li>
       </ul>
+      <hr>
       <div id="chart"></div>
     </div>
     <script src="http://d3js.org/d3.v2.min.js"></script>
@@ -52,10 +67,9 @@ var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var valueLabelWidth = 80; // space reserved for value labels (right)
 var barHeight = 20; // height of one bar
 var barLabelWidth = 300; // space reserved for bar labels
-var barLabelPadding = 5; // padding between bar and bar labels (left)
+var barLabelPadding = 10; // padding between bar and bar labels (left)
 var gridLabelHeight = 18; // space reserved for gridline labels
-var gridChartOffset = 3; // space between start of grid and first bar
-//var maxBarWidth = 420; // width of the bar with the max value
+var gridChartOffset = 10; // space between start of grid and first bar
 var maxBarWidth = width - barLabelWidth - valueLabelWidth - 120; // width of the bar with the max value
 
 // data aggregation
