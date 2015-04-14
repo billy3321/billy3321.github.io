@@ -23,7 +23,7 @@
         *display:inline; /* ie7 fix */
         *zoom:1; /* hasLayout ie7 trigger */
         vertical-align: top;
-        width: 190px;
+        /* width: 220px; */
       }
 
       .navbar-inner {
@@ -44,23 +44,45 @@
   <body>
     <div class="container">
       <div class="navbar-inner">
-      <ul class="nav nav-pills">
-        <li role="presentation" class="in_party_legislator active"><a href="#">各候選人政黨捐贈</a></li>
-        <li role="presentation" class="in_profit_legislator"><a href="#">各候選人營利事業捐贈</a></li>
-        <li role="presentation" class="in_civil_legislator"><a href="#">各候選人人民團體捐贈</a></li>
-        <br />
-        <li role="presentation" class="in_individual_legislator"><a href="#">各候選人個人捐贈</a></li>
-        <li role="presentation" class="in_total_legislator"><a href="#">各候選人總收入</a></li>
-        <li role="presentation" class="out_total_legislator"><a href="#">各候選人總支出</a></li>
-        <br />
-        <li role="presentation" class="in_party_party"><a href="#">各政黨平均政黨捐贈</a></li>
-        <li role="presentation" class="in_profit_party"><a href="#">各政黨平均營利事業捐贈</a></li>
-        <li role="presentation" class="in_civil_party"><a href="#">各政黨平均人民團體捐贈</a></li>
-        <br />
-        <li role="presentation" class="in_individual_party"><a href="#">各政黨平均個人捐贈</a></li>
-        <li role="presentation" class="in_total_party"><a href="#">各政黨平均總收入</a></li>
-        <li role="presentation" class="out_total_party"><a href="#">各政黨平均總支出</a></li>
-      </ul>
+        <ul class="nav nav-pills">
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              各候選人<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation" class="in_party_legislator active"><a href="#">政黨捐贈收入</a></li>
+              <li role="presentation" class="in_profit_legislator"><a href="#">營利事業捐贈收入</a></li>
+              <li role="presentation" class="in_civil_legislator"><a href="#">人民團體捐贈收入</a></li>
+              <li role="presentation" class="in_individual_legislator"><a href="#">個人捐贈收入</a></li>
+              <li role="presentation" class="in_total_legislator"><a href="#">總收入</a></li>
+              <li role="presentation" class="out_propagate_legislator"><a href="#">宣傳支出</a></li>
+              <li role="presentation" class="out_total_legislator"><a href="#">總支出</a></li>
+            </ul>
+          </li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              各政黨平均<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation" class="in_party_party_averange"><a href="#">政黨捐贈收入</a></li>
+              <li role="presentation" class="in_profit_party_averange"><a href="#">營利事業捐贈收入</a></li>
+              <li role="presentation" class="in_civil_party_averange"><a href="#">人民團體捐贈收入</a></li>
+              <li role="presentation" class="in_individual_party_averange"><a href="#">個人捐贈收入</a></li>
+              <li role="presentation" class="in_total_party_averange"><a href="#">總收入</a></li>
+              <li role="presentation" class="out_propagate_party_averange"><a href="#">宣傳支出</a></li>
+              <li role="presentation" class="out_total_party_averange"><a href="#">總支出</a></li>
+            </ul>
+          </li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              各政黨總和<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation" class="in_party_party_sum"><a href="#">政黨捐贈收入</a></li>
+              <li role="presentation" class="in_profit_party_sum"><a href="#">營利事業捐贈收入</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
       資料來源：<a href="http://vote.ly.g0v.tw/" target="_blank">立委投票指南</a><br />
       此為2012年競選政治獻金資料，不分區立委無資料，補選立委則尚未取得資料。
@@ -79,8 +101,10 @@ function renderChart(column, source) {
 d3.select('#chart').html("");
 if (source == 'legislator'){
   var data = d3.csv.parse(d3.select('#legislator_csv').text());
-}else if (source == 'party'){
-  var data = d3.csv.parse(d3.select('#party_csv').text());
+} else if (source == 'party_averange'){
+  var data = d3.csv.parse(d3.select('#party_averange_csv').text());
+} else if (source == 'party_sum'){
+  var data = d3.csv.parse(d3.select('#party_sum_csv').text());
 }
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var valueLabelWidth = 85; // space reserved for value labels (right)
@@ -96,7 +120,7 @@ var aggregatedData = d3.nest()
   .key(function(d) { 
     if (source == 'legislator'){
       return d['name'] + '(' + d['constituency'] + '，' + d['party'] + ')'; 
-    } else if (source == 'party'){
+    } else if (source == 'party_averange' || source == 'party_sum'){
       return d['party']; 
     }
   })
@@ -107,7 +131,7 @@ var aggregatedData = d3.nest()
         'id': d[0]['id'],
         'party': d[0]['party']
       };
-    } else if (source == 'party'){
+    } else if (source == 'party_averange' || source == 'party_sum'){
       return {
         'value': d3.sum(d, function(e) { return parseFloat(e[column]); }),
         'party': d[0]['party']
@@ -124,7 +148,6 @@ var barValue = function(d) { return d.values.value; };
 var sortedData = aggregatedData.sort(function(a, b) {
  return d3.descending(barValue(a), barValue(b));
 }); 
-console.log(sortedData);
 
 // scales
 var yScale = d3.scale.ordinal().domain(d3.range(0, sortedData.length)).rangeBands([0, sortedData.length * barHeight]);
@@ -169,7 +192,7 @@ if (source == 'legislator'){
     .attr("dy", ".35em") // vertical-align: middle
     .attr('text-anchor', 'end')
     .text(barLabel);
-} else if (source == 'party'){
+} else if (source == 'party_averange' || source == 'party_sum'){
   labelsContainer.selectAll('text').data(sortedData).enter().append('text')
     .attr('y', yText)
     .attr('stroke', 'none')
@@ -346,72 +369,97 @@ barsContainer.append("line")
 1811,許淑華,中國國民黨,南投縣第2選區,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1812,莊瑞雄,民主進步黨,屏東縣第3選區,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </script>
-    <script id="party_csv" type="text/csv">party,in_party,in_profit,in_civil,in_anonymous,in_individual,in_others,in_total,out_personnel,out_return,out_miscellaneous,out_campaign_vehicle,out_campaign_office,out_public_relation,out_propagate,out_rally,out_exchequer,out_travel,out_total,balance
+    <script id="party_averange_csv" type="text/csv">party,in_party,in_profit,in_civil,in_anonymous,in_individual,in_others,in_total,out_personnel,out_return,out_miscellaneous,out_campaign_vehicle,out_campaign_office,out_public_relation,out_propagate,out_rally,out_exchequer,out_travel,out_total,balance
 中國國民黨,3555681.81818182,8237579.77272727,500434.090909091,26402.7727272727,9046519.15909091,1806.93181818182,21368424.5454545,2302357.45454545,715718.181818182,2107812.06818182,494161.840909091,863468.318181818,223767.363636364,10998319.8636364,1876467.15909091,115768.181818182,296218.659090909,19994059.0909091,1374365
 民主進步黨,215124.740740741,5190262.2962963,295970.37037037,194465.962962963,10456668.6296296,1244.14814814815,16353736.1481481,2582570.14814815,527455.555555556,1570174.7037037,272221.555555556,652732.074074074,175436.444444444,7916770.77777778,1766292.03703704,70851.8518518519,344480.222222222,15878985.3703704,474751
+無黨團結聯盟,0,17739000,961000,0,10943560,835,29644395,463000,2200000,4282215,0,1588261,0,6136569,270380,0,538697,15479122,14165273
+無黨籍,0,0,0,0,460000,0,460000,747000,0,139940,0,133150,0,616390,0,0,24581,1661061,-1201061</script>
+<script id="party_sum_csv" type="text/csv">party,in_party,in_profit,in_civil,in_anonymous,in_individual,in_others,in_total,out_personnel,out_return,out_miscellaneous,out_campaign_vehicle,out_campaign_office,out_public_relation,out_propagate,out_rally,out_exchequer,out_travel,out_total,balance
+中國國民黨,156450000,362453510,22019100,1161722,398046843,79505,940210680,101303728,31491600,92743731,21743121,37992606,9845764,483926074,82564555,5093800,13033621,879738600,60472080
+民主進步黨,5808368,140137082,7991200,5250581,282330053,33592,441550876,69729394,14241300,42394717,7349982,17623766,4736784,213752811,47689885,1913000,9300966,428732605,12818271
 無黨團結聯盟,0,17739000,961000,0,10943560,835,29644395,463000,2200000,4282215,0,1588261,0,6136569,270380,0,538697,15479122,14165273
 無黨籍,0,0,0,0,460000,0,460000,747000,0,139940,0,133150,0,616390,0,0,24581,1661061,-1201061</script>
     <script>
       $( document ).ready(function() {
         $('li.in_party_legislator').click(function(){
-          $('ul.nav>li').removeClass('active');
+          $('ul.dropdown-menu>li').removeClass('active');
           $('li.in_party_legislator').addClass('active');
           renderChart('in_party', 'legislator');
         });
         $('li.in_profit_legislator').click(function(){
-          $('ul.nav>li').removeClass('active');
+          $('ul.dropdown-menu>li').removeClass('active');
           $('li.in_profit_legislator').addClass('active');
           renderChart('in_profit', 'legislator');
         });
         $('li.in_civil_legislator').click(function(){
-          $('ul.nav>li').removeClass('active');
+          $('ul.dropdown-menu>li').removeClass('active');
           $('li.in_civil_legislator').addClass('active');
           renderChart('in_civil', 'legislator');
         });
         $('li.in_individual_legislator').click(function(){
-          $('ul.nav>li').removeClass('active');
+          $('ul.dropdown-menu>li').removeClass('active');
           $('li.in_individual_legislator').addClass('active');
           renderChart('in_profit', 'legislator');
         });
         $('li.in_total_legislator').click(function(){
-          $('ul.nav>li').removeClass('active');
+          $('ul.dropdown-menu>li').removeClass('active');
           $('li.in_total_legislator').addClass('active');
           renderChart('in_total', 'legislator');
         });
+        $('li.out_propagate_legislator').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.out_propagate_legislator').addClass('active');
+          renderChart('out_propagate', 'legislator');
+        });
         $('li.out_total_legislator').click(function(){
-          $('ul.nav>li').removeClass('active');
+          $('ul.dropdown-menu>li').removeClass('active');
           $('li.out_total_legislator').addClass('active');
           renderChart('out_total', 'legislator');
         });
-        $('li.in_party_party').click(function(){
-          $('ul.nav>li').removeClass('active');
-          $('li.in_party_party').addClass('active');
-          renderChart('in_party', 'party');
+        $('li.in_party_party_averange').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_party_party_averange').addClass('active');
+          renderChart('in_party', 'party_averange');
         });
-        $('li.in_profit_party').click(function(){
-          $('ul.nav>li').removeClass('active');
-          $('li.in_profit_party').addClass('active');
-          renderChart('in_profit', 'party');
+        $('li.in_profit_party_averange').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_profit_party_averange').addClass('active');
+          renderChart('in_profit', 'party_averange');
         });
-        $('li.in_civil_party').click(function(){
-          $('ul.nav>li').removeClass('active');
-          $('li.in_civil_party').addClass('active');
-          renderChart('in_civil', 'party');
+        $('li.in_civil_party_averange').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_civil_party_averange').addClass('active');
+          renderChart('in_civil', 'party_averange');
         });
-        $('li.in_individual_party').click(function(){
-          $('ul.nav>li').removeClass('active');
-          $('li.in_individual_party').addClass('active');
-          renderChart('in_individual', 'party');
+        $('li.in_individual_party_averange').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_individual_party_averange').addClass('active');
+          renderChart('in_individual', 'party_averange');
         });
-        $('li.in_total_party').click(function(){
-          $('ul.nav>li').removeClass('active');
-          $('li.in_total_party').addClass('active');
-          renderChart('in_total', 'party');
+        $('li.in_total_party_averange').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_total_party_averange').addClass('active');
+          renderChart('in_total', 'party_averange');
         });
-        $('li.out_total_party').click(function(){
-          $('ul.nav>li').removeClass('active');
-          $('li.out_total_party').addClass('active');
-          renderChart('out_total', 'party');
+        $('li.out_propagate_party_averange').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.out_propagate_party_averange').addClass('active');
+          renderChart('out_propagate', 'party_averange');
+        });
+        $('li.out_total_party_averange').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.out_total_party_averange').addClass('active');
+          renderChart('out_total', 'party_averange');
+        });
+        $('li.in_party_party_sum').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_party_party_sum').addClass('active');
+          renderChart('in_party', 'party_sum');
+        });
+        $('li.in_profit_party_sum').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_profit_party_sum').addClass('active');
+          renderChart('in_profit', 'party_sum');
         });
         renderChart('in_total', 'legislator');
       });
