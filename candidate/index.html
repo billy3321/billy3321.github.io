@@ -82,6 +82,8 @@
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuDivider">
               <li role="presentation" class="in_party_party_sum"><a href="#">政黨捐贈收入</a></li>
               <li role="presentation" class="in_profit_party_sum"><a href="#">營利事業捐贈收入</a></li>
+              <li role="presentation" class="in_civil_party_sum"><a href="#">人民團體捐贈收入</a></li>
+              <li role="presentation" class="in_individual_party_sum"><a href="#">個人捐贈收入</a></li>
             </ul>
           </li>
         </ul>
@@ -462,6 +464,16 @@ barsContainer.append("line")
           $('ul.dropdown-menu>li').removeClass('active');
           $('li.in_profit_party_sum').addClass('active');
           renderChart('in_profit', 'party_sum');
+        });
+        $('li.in_civil_party_sum').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_civil_party_sum').addClass('active');
+          renderChart('in_civil', 'party_sum');
+        });
+        $('li.in_individual_party_sum').click(function(){
+          $('ul.dropdown-menu>li').removeClass('active');
+          $('li.in_individual_party_sum').addClass('active');
+          renderChart('in_individual', 'party_sum');
         });
         renderChart('in_total', 'legislator');
       });
