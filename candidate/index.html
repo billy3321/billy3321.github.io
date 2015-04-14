@@ -111,9 +111,22 @@ if (source == 'legislator'){
   var data = d3.csv.parse(d3.select('#party_sum_csv').text());
 }
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+if (source == 'legislator'){
+  if (width < 800){
+    width = 800;
+  }
+  var barLabelWidth = 300; // space reserved for bar labels
+} else if (source == 'party_averange' || source == 'party_sum') {
+  if (width < 600){
+    width = 600;
+  }
+  var barLabelWidth = 100;
+} else {
+  var barLabelWidth = 100;
+}
 var valueLabelWidth = 85; // space reserved for value labels (right)
 var barHeight = 20; // height of one bar
-var barLabelWidth = 300; // space reserved for bar labels
 var barLabelPadding = 10; // padding between bar and bar labels (left)
 var gridLabelHeight = 18; // space reserved for gridline labels
 var gridChartOffset = 10; // space between start of grid and first bar
