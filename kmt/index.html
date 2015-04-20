@@ -1,13 +1,167 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>社團法人中國國民黨及其附隨組織取自國家資產之土地清冊</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>揭露國民黨</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <meta property="og:image" content="kmt_map.jpg" />
     <meta property="og:type" content="website" />
+    <link href="css/carousel.css" rel="stylesheet">
   </head>
   <body>
-    <p><a href="2014_estate.html" >社團法人中國國民黨及其附隨組織取自國家資產之土地清冊2014年版</a></p>
-    <p><a href="2006_estate.html" >社團法人中國國民黨及其附隨組織取自國家資產之土地清冊2006年版</a></p>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">國民黨黨產資料</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">首頁</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">國民黨<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="state.html">不動產</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">投資公司<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="hoding.html">持股公司</a></li>
+                    <li><a href="company.html">相關投資</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">附隨組織<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="women.html">婦聯會</a></li>
+                    <li><a href="cyc.html">救國團</a></li>
+                  </ul>
+                </li>
+                <li><a href="about.html">關於</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#kmt_map" data-slide-to="0" class="active"></li>
+        <li data-target="#companies" data-slide-to="1"></li>
+        <li data-target="#organizes" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>黨產地圖</h1>
+              <p>國民黨黨產地圖，你家在黨產旁邊嗎？</p>
+              <p><a class="btn btn-lg btn-primary" href="#kmt_map" role="button">了解更多</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>國民黨投資公司</h1>
+              <p>國民黨投資了哪些公司？快來了解。</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>婦聯會</h1>
+              <p>國民黨有許多相關組織，究竟有哪些組織？他們的錢又從哪裡來？</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">了解更多</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">國民黨黨產地圖</span></h2>
+        <p class="lead">國民黨黨產地圖，你家在黨產旁邊嗎？</p>
+        <p><a href="2014_estate.html" >社團法人中國國民黨及其附隨組織取自國家資產之土地清冊2014年版</a></p>
+        <p><a href="2006_estate.html" >社團法人中國國民黨及其附隨組織取自國家資產之土地清冊2006年版</a></p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive center-block" src="kmt_map.jpg" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">國民黨投資公司</h2>
+        <p class="lead">國民黨投資的公司究竟多有錢？</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive center-block" src="http://www.thinkingtaiwan.com/sites/default/files/images/insert/policy/2_0.jpg" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">婦聯會</h2>
+        <p class="lead">婦聯會的實際土地、財產及保管基金數字一直是個謎。</p>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive center-block" src="http://setmoney.blob.core.windows.net/newsimages/2015/01/14/205355-XXL.jpg" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">救國團</h2>
+        <p class="lead">救國團歷年補助經費</p>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive center-block" src="http://setmoney.blob.core.windows.net/newsimages/2015/01/14/205355-XXL.jpg" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    
   </body>
 </html>
