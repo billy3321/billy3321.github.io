@@ -1,0 +1,32 @@
+body {
+	background-color: #EEE;
+}
+
+header {
+	padding: 1.5rem;
+	background-color: #343434;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0 1rem;
+	color: #fff;
+	font-size: 3rem;
+}
+
+.container {
+	float: buttom;
+}
+
+#ask {
+	margin: 1rem;
+}
+
+.answer p {
+	padding: 5rem 4rem 7rem;
+	min-width: 400px;
+	min-height: 255px;
+	background: url('./say.png') center center;
+	background-size: cover;
+	font-size: 1.25em;
+}
