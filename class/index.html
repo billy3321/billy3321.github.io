@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>吳思華回應產生器</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="./style.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
-var answers = ["我願意讓高中老師選擇要不要使用新課綱。", 
-  "你可以跟老師反應不要用新課綱。", 
+var answers = ["我願意讓高中老師選擇要不要使用新課綱。",
+  "你可以跟老師反應不要用新課綱。",
   "新課綱沒有什麼問題啊！",
-  "我很忙的你們不知道嗎？我何嘗不想與你們溝通！你們有任何意見可以寄書面文件 來教育部慢慢討論啊！"
+  "我很忙的你們不知道嗎？我何嘗不想與你們溝通！你們有任何意見可以寄書面文件 來教育部慢慢討論啊！",
   "我私下聽到很多歷史學者告訴我支持新課綱，但恕我不能透露他們是誰。",
   "有問題就要英勇地面臨，想法子去解決它。",
   "只要是承諾的事，我一定會非常投入去完成它。"];
@@ -20,22 +21,28 @@ $( document ).ready(function() {
     $('#ask').click(function(){
         var answer = answers[Math.floor(Math.random()*answers.length)];
         answer = "<p>" + answer + "</p>";
-        $( ".answer" ).append( answer );
+		var tmp = $( ".answer" ).html();
+        $( ".answer" ).html( answer + tmp );
     })
 });
 </script>
 </head>
 <body>
-<div class="jumbotron">
-
-<div class="container">
-<div class="row">
-<div class="col-md-4 col-md-offset-4">
-<button id="ask" type="button" class="btn btn-default">部長，請問你願意退回課綱嗎？</button>
-<div class="answer"></div>
-</div>
-</div>
-</div>
-</div>
+	<header>
+		<h1>吳思華回應產生器</h1>
+	</header>
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-2">
+					<img src="white_eye.gif" alt="吳思華變臉照" />
+					<button id="ask" type="button" class="btn btn-default">部長，請問你願意退回課綱嗎？</button>
+				</div>
+				<div class="col-md-4">
+					<div class="answer"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
