@@ -102,7 +102,7 @@
         selected = [];
         excluded = [];
         generate = function() {
-          console.log('generate');
+          //console.log('generate');
           var max = $('#max')[0].value;
           var exclude = $('#exclude')[0].value;
           all = [];
@@ -121,7 +121,7 @@
           });
         };
         random = function() {
-          console.log('random');
+          //console.log('random');
           var select_num = $('#select')[0].value;
           var shuffled_all = shuffle(all);
           if ( select_num !== undefined && select_num > 0) {
