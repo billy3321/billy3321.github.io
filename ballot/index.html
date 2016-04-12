@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+      .ball {
+        background-color: #aaa;
+        border-radius: 50;
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center">Hello World</h1>
+    <div class="container">
+      <form>
+        <div class="row">
+        <div class="form-group">
+        <label for="max">最大的數字</label>
+        <input type="number" name="max" id="max" class="form-control" value="" min="" max="100" step="" required="required" title="">
+        </div>
+        </div>
+        <div class="row">
+        <div class="form-group">
+        <label for="exclude">除外的數字，請以「、」分隔</label>
+        <input type="text" name="exclude" id="exclude" class="form-control">
+        </div>
+        </div>
+        <div class="row">
+        <div class="form-group">
+        <label for="select">要選出幾個</label>
+        <input type="number" name="select" id="select" class="form-control" value="" min="" max="100" step="" required="required" title="">
+        </div>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-default" id="generate">產生所有的數字</button>
+          <button type="button" class="btn btn-default" id="random">抽出指定的數字</button>
+        </div>
+        
+      </form>
+      <div class="row">
+        <div id="all">
+          
+        </div>
+        <div id="selected">
+          
+        </div>
+        <div id="excluded">
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script>
+      $( document ).ready(function() {
+        Array.prototype.diff = function(a) {
+          return this.filter(function(i) {return a.indexOf(i) < 0;});
+        };
+
+        var shuffle = function(array) {
+          var currentIndex = array.length, temporaryValue, randomIndex;
+
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+
+          return array;
+        };
+        all = [];
+        selected = [];
+        excluded = [];
+        generate = function() {
+          console.log('generate');
+          var max = $('#max')[0].value;
+          var exclude = $('#exclude')[0].value;
+          all = [];
+          if ( max !== undefined && max > 0) {
+            for (var i = 1; i <= max; i++) {
+              all.push(i.toString());
+            }
+            if (exclude !== undefined) {
+              var excluded = exclude.split('、');
+              all = all.diff(excluded);
+            }
+          }
+          $('#all').empty();
+          $.each(all, function(i, v){
+            $('#all').append('<div class="ball" id="' + v + '">' + v + '</div>');
+          });
+        };
+        random = function() {
+          console.log('random');
+          var select_num = $('#select')[0].value;
+          var shuffled_all = shuffle(all);
+          if ( select_num !== undefined && select_num > 0) {
+            selected = [];
+            excluded = [];
+            $.each(shuffled_all, function(i, v){
+              if (i < select_num){
+                selected.push(v);
+              } else {
+                excluded.push(v);
+              }
+            });
+            selected.sort();
+            excluded.sort();
+          }
+          $('#selected').empty();
+          $.each(selected, function(i, v){
+            $('#selected').append('<div class="ball" id="' + v + '">' + v + '</div>');
+          });
+          $('#excluded').empty();
+          $.each(excluded, function(i, v){
+            $('#excluded').append('<div class="ball" id="' + v + '">' + v + '</div>');
+          });
+        }
+        $('#generate').click(generate);
+        $('#random').click(random);
+      });
+    </script>
+  </body>
+</html>
