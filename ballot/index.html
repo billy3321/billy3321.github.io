@@ -1,154 +1,216 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
+<html lang="zh-Hant">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title Page</title>
+    <title>司改會抽抽籤</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
     <style type="text/css">
-      .ball {
-        background-color: #aaa;
+    @keyframes ball-appear {
+        0% { transform: scale3d(1, 1, 1); opacity: .8; }
+        30% { transform: scale3d(1.25, 0.75, 1); }
+        40% { transform: scale3d(0.75, 1.25, 1); opacity: 1; }
+        50% { transform: scale3d(1.15, 0.85, 1); }
+        65% { transform: scale3d(.95, 1.05, 1); }
+        75% { transform: scale3d(1.05, .95, 1); }
+        100% { transform: scale3d(1, 1, 1); }
+    }
+
+    @keyframes ball-fade {
+        from { color: rgba(117, 117, 117, .6); }
+        to { color: rgba(117, 117, 117, 1); }
+    }
+
+    .ball {
+        background-color: #757575;
         border-radius: 50%;
+        color: #f5f5f5;
         display: inline-block;
-        height: 30px;
-        width: 30px;
-        line-height: 30px;
+        height: 2.15em;
+        width: 2.15em;
+        line-height: 2.15em;
         text-align: center;
-      }
+        margin: 1px;
+        animation: .6s ease ball-appear;
+    }
+
+    #selected .ball {
+        background: #2196f3;
+        color: #fff;
+    }
+
+    #excluded .ball {
+        background: #bdbdbd;
+        color: #757575;
+        animation: .3s ease-in ball-fade;
+    }
+
+    #all:not(:empty):before,
+    #selected:not(:empty):before,
+    #excluded:not(:empty):before {
+        border-bottom: 1px solid #e0e0e0;
+        display: block;
+        font-weight: 500;
+        margin: 1.5em 0 .5em;
+        padding: .25em 0;
+    }
+
+    #all:not(:empty):before { content: '所有的球球'; }
+    #selected:not(:empty):before { content: '抽中的球球'; }
+    #excluded:not(:empty):before { content: '候補的球球'; }
     </style>
-  </head>
-  <body>
-    <h1 class="text-center">Hello World</h1>
+</head>
+<body>
+    <h1 class="text-center">司改抽抽籤</h1>
     <div class="container">
-      <form>
+        <form>
+            <div class="row">
+                <div class="form-group">
+                    <label for="max">最大的數字</label>
+                    <input type="number" name="max" id="max" class="form-control" value="" min="0" max="100" step="" required="required" title="">
+                    <span id="max-invalid" class="help-block hidden">請輸入有效的數字，例如「100」</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="exclude">除外的數字，請以「、」分隔</label>
+                    <input type="text" name="exclude" id="exclude" class="form-control">
+                    <span id="exclude-invalid" class="help-block hidden">請輸入有效的數字與「、」</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="select">要選出幾個</label>
+                    <input type="number" name="select" id="select" class="form-control" value="" min="" max="100" step="" required="required" title="">
+                    <span id="select-invalid" class="help-block hidden">請輸入有效的數字</span>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-default" id="generate">產生所有的數字</button>
+                <button type="button" class="btn btn-default" id="random" disabled>抽出指定的數字</button>
+            </div>
+
+        </form>
         <div class="row">
-        <div class="form-group">
-        <label for="max">最大的數字</label>
-        <input type="number" name="max" id="max" class="form-control" value="" min="" max="100" step="" required="required" title="">
+            <div id="all"></div>
+            <div id="selected"></div>
+            <div id="excluded"></div>
         </div>
-        </div>
-        <div class="row">
-        <div class="form-group">
-        <label for="exclude">除外的數字，請以「、」分隔</label>
-        <input type="text" name="exclude" id="exclude" class="form-control">
-        </div>
-        </div>
-        <div class="row">
-        <div class="form-group">
-        <label for="select">要選出幾個</label>
-        <input type="number" name="select" id="select" class="form-control" value="" min="" max="100" step="" required="required" title="">
-        </div>
-        </div>
-        <div class="row">
-          <button type="button" class="btn btn-default" id="generate">產生所有的數字</button>
-          <button type="button" class="btn btn-default" id="random">抽出指定的數字</button>
-        </div>
-        
-      </form>
-      <div class="row">
-        <div id="all">
-          
-        </div>
-        <div id="selected">
-          
-        </div>
-        <div id="excluded">
-          
-        </div>
-      </div>
     </div>
 
     <!-- jQuery -->
-    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script>
-      $( document ).ready(function() {
+    $( document ).ready(function() {
         Array.prototype.diff = function(a) {
-          return this.filter(function(i) {return a.indexOf(i) < 0;});
+            return this.filter(function(i) {return a.indexOf(i) < 0;});
         };
 
         var shuffle = function(array) {
-          var currentIndex = array.length, temporaryValue, randomIndex;
+            var currentIndex = array.length, temporaryValue, randomIndex;
 
-          // While there remain elements to shuffle...
-          while (0 !== currentIndex) {
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
 
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
 
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-          }
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
 
-          return array;
+            return array;
         };
         all = [];
         selected = [];
         excluded = [];
         generate = function() {
-          //console.log('generate');
-          var max = $('#max')[0].value;
-          var exclude = $('#exclude')[0].value;
-          all = [];
-          if ( max !== undefined && max > 0) {
-            for (var i = 1; i <= max; i++) {
-              all.push(i.toString());
+            //console.log('generate');
+            var max = Number($('#max').val());
+            var exclude = $('#exclude').val();
+            all = [];
+            if (max > 0) {
+                for (var i = 1; i <= max; i++) {
+                    all.push(i.toString());
+                }
+                if (exclude !== undefined) {
+                    var excluded = exclude.split('、');
+                    all = all.diff(excluded);
+                }
             }
-            if (exclude !== undefined) {
-              var excluded = exclude.split('、');
-              all = all.diff(excluded);
-            }
-          }
-          $('#all').empty();
-          $.each(all, function(i, v){
-            $('#all').append('<div class="ball" id="' + v + '">' + v + '</div>');
-          });
-        };
-        random = function() {
-          //console.log('random');
-          var select_num = $('#select')[0].value;
-          var shuffled_all = shuffle(all);
-          if ( select_num !== undefined && select_num > 0) {
-            selected = [];
-            excluded = [];
-            $.each(shuffled_all, function(i, v){
-              if (i < select_num){
-                selected.push(v);
-              } else {
-                excluded.push(v);
-              }
+            $('#all').empty();
+            $.each(all, function(i, v){
+                $('#all').append('<div class="ball" id="' + v + '">' + v + '</div>');
             });
-            selected.sort();
-            excluded.sort();
-          }
-          $('#selected').empty();
-          $.each(selected, function(i, v){
-            $('#selected').append('<div class="ball" id="' + v + '">' + v + '</div>');
-          });
-          $('#excluded').empty();
-          $.each(excluded, function(i, v){
-            $('#excluded').append('<div class="ball" id="' + v + '">' + v + '</div>');
-          });
+        };
+
+        numericSort = function(a, b) {
+            return a - b;
+        }
+
+        random = function() {
+            //console.log('random');
+            var select_num = Number($('#select').val());
+            var shuffled_all = shuffle(all);
+            if (select_num > 0) {
+                selected = [];
+                excluded = [];
+                $.each(shuffled_all, function(i, v){
+                    if (i < select_num){
+                        selected.push(v);
+                    } else {
+                        excluded.push(v);
+                    }
+                });
+                selected.sort(numericSort);
+                excluded.sort(numericSort);
+            }
+            $('#selected').empty();
+            $.each(selected, function(i, v){
+                $('#selected').append('<div class="ball" id="' + v + '">' + v + '</div>');
+            });
+            $('#excluded').empty();
+            $.each(excluded, function(i, v){
+                $('#excluded').append('<div class="ball" id="' + v + '">' + v + '</div>');
+            });
         }
         $('#generate').click(generate);
         $('#random').click(random);
-      });
+        $('#max').bind('keyup change', function() {
+            var valid = Number($(this).val()) > 0;
+            $(this).parent().toggleClass('has-error', !valid);
+            $('#max-invalid').toggleClass('hidden', valid);
+        });
+        $('#exclude').bind('keyup change', function() {
+            var valid = /^[0-9、]*$/.test($(this).val());
+            $(this).parent().toggleClass('has-error', !valid);
+            $('#exclude-invalid').toggleClass('hidden', valid);
+        });
+        $('#select').bind('keyup change', function() {
+            var text = $(this).val();
+            var valid = Number(text) > 0;
+            $('#random').prop('disabled', !text);
+            $(this).parent().toggleClass('has-error', !valid);
+            $('#select-invalid').toggleClass('hidden', valid);
+        });
+    });
     </script>
-  </body>
+</body>
 </html>
