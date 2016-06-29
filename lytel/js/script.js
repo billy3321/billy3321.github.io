@@ -123,7 +123,7 @@ function sortResults(prop, asc) {
 
 $(function() {
     $('#contact-list th').click(function() {
-        var id = $(this).attr('id');
+        var id = $(this).attr('uid');
         if(id ==undefined) return;
         var asc = (!$(this).attr('asc')); // switch the order, true if not set
 
@@ -148,7 +148,7 @@ function showResults(){
         } else {
             var html = '<tr class="even">';
         }
-        var avatar_url = "https://cic.tw/images/legislators/160x214/" + val['id'] + ".jpg"
+        var avatar_url = "https://cic.tw/images/legislators/160x214/" + val['uid'] + ".jpg"
         html = html + '<td><img src="' + avatar_url + '" alt="' + val['name'] + '" width="160" height="214"></td>';
         html = html + '<td>' + val['name'] + '</td>';
         html = html + '<td>' + party_parser(val['party']) + '</td>';
