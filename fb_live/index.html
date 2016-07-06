@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>fb直播按鈕</title>
+</head>
+<body>
+  <button id="liveButton">在Facebook進行現場直播</button>
+  <script type="text/rocketscript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '161511084248681',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/rocketscript">
+document.getElementById('liveButton').onclick = function() {
+  FB.ui({
+    display: 'popup',
+    method: 'live_broadcast',
+    phase: 'create',
+}, function(response) {
+    if (!response.id) {
+      alert('dialog canceled');
+      return;
+    }
+    FB.ui({
+      display: 'popup',
+      method: 'live_broadcast',
+      phase: 'publish',
+      broadcast_data: response,
+    }, function(response) {
+    alert("video status: \n" + response.status);
+    });
+  });
+};
+</script>
+</body>
+</html>
