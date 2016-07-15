@@ -5,7 +5,6 @@
   <title>fb直播按鈕</title>
 </head>
 <body>
-  <button id="liveButton">在Facebook進行現場直播</button>
   <script type="text/rocketscript">
   window.fbAsyncInit = function() {
     FB.init({
@@ -23,6 +22,7 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+<button id="liveButton">在Facebook進行現場直播</button>
 <script type="text/rocketscript">
 document.getElementById('liveButton').onclick = function() {
   FB.ui({
