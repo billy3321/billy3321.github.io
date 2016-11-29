@@ -144,7 +144,7 @@ function showResults(){
     var num = 0;
     var today = new Date();
     $.each(data_cache, function (key, val) {
-        if (new Date(val['term_end']['date']) > today) {
+        if (!val['term_end'] || new Date(val['term_end']['date']) > today) {
             if ((num % 2) == 0) {
                 var html = '<tr>';
             } else {
